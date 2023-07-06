@@ -1,8 +1,8 @@
 package lesson1;
 
 public class Book {
-    private String title;
-    private Author author;
+    private final String title;
+    private final Author author;
     private int year;
 
     public String getTitle() {
@@ -25,5 +25,28 @@ public class Book {
         this.author = author;
         this.title = title;
         this.year = year;
+    }
+
+    public String toString() {
+        return "Книга \"" + this.getTitle() + "\" написана в " + this.getYear() + " " + this.getAuthor().toString();
+    }
+
+    public boolean equals(Object book) {
+        if (this.getClass() != book.getClass()) {
+            return false;
+        } else {
+            Book b1 = (Book) book;
+            return title.equals(b1.title) && author.equals(b1.author);
+        }
+    }
+
+    /* Почему нельзя использовать такой код? Даже если у разных объектов будет одинаковый параметр title выдает false.
+    public boolean equals(Book book) {
+        return title.equals(book.title);
+    }*/
+
+    @Override
+    public int hashCode() {
+        return java.util.Objects.hash(title, author);
     }
 }
