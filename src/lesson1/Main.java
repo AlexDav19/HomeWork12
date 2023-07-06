@@ -7,9 +7,14 @@ public class Main {
         Book book1 = new Book("Война и мир", author1, 1867);
         Book book2 = new Book("Мастер и Маргарита", author2, 1928);
         book2.setYear(1940);
-        System.out.printf(" Книга \"%s\" написана в %s, автор: %s %s.%n", book2.getTitle(), book2.getYear(),
-                book2.getAuthor().getFirsName(),book2.getAuthor().getLastName());
-        System.out.printf(" Книга \"%s\" написана в %s, автор: %s %s.%n", book1.getTitle(), book1.getYear(),
-                book1.getAuthor().getFirsName(),book1.getAuthor().getLastName());
+        System.out.println(book2);
+        System.out.println(book1);
+        System.out.println(author1);
+        System.out.println(author2);
+        System.out.println(author1.equals(author2));
+        System.out.println(book1.equals(book2));
+        System.out.println(book1.hashCode());
+        System.out.println(book2.hashCode());
+        System.out.println(author1.hashCode());
     }
 }
